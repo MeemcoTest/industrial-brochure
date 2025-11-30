@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Industrial Product Brochure</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Model Viewer -->
+  <!-- <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script> -->
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      background: #f3f4f6;
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #0f172a);
+      color: white;
+      padding: 40px 50px;
+      text-align: left;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 40px;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-top: 10px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1300px;
+      margin: 40px auto;
+      display: flex;
+      gap: 40px;
+    }
+
+    .left-panel, .right-panel {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .left-panel {
+      flex: 1.2;
+    }
+
+    .right-panel {
+      flex: 1;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 420px;
+      border-radius: 12px;
+      background: #e5e7eb;
+    }
+
+    .section-title {
+      margin-top: 25px;
+      font-size: 22px;
+      font-weight: 700;
+      border-left: 4px solid #1e3a8a;
+      padding-left: 10px;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+    }
+
+    table td {
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      height: 85px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .btn-download {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 22px;
+      border-radius: 8px;
+      background: #1e3a8a;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-download:hover {
+      background: #0f172a;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Industrial Machine X-200</h1>
+  <p>Advanced Manufacturing • High Precision • Rugged Design</p>
+</header>
+
+<div class="container">
+
+  <!-- Left Panel -->
+  <div class="left-panel">
+    <!-- <model-viewer
+        src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+        alt="Industrial Machine 3D Model"
+        camera-controls
+        auto-rotate
+        shadow-intensity="1"
+        style="width:100%; height:400px; background:#f0f4f8; border-radius:12px;"
+      ></model-viewer> -->
+
+      <model-viewer
+  src="testduct.glb"
+  camera-controls
+  auto-rotate
+  shadow-intensity="1"
+></model-viewer>
+
+    <h2 class="section-title">Technical Specifications</h2>
+    <table>
+      <tr><td>Material</td><td>Reinforced Steel Alloy</td></tr>
+      <tr><td>Power</td><td>480V / 50A</td></tr>
+      <tr><td>Weight</td><td>850 kg</td></tr>
+      <tr><td>Output</td><td>120 units/hour</td></tr>
+      <tr><td>Max Temperature</td><td>900°C</td></tr>
+    </table>
+
+    <a class="btn-download" href="model.glb" download>Download 3D Model</a>
+  </div>
+
+
+  <!-- Right Panel -->
+  <div class="right-panel">
+    <h2 class="section-title">Product Highlights</h2>
+    <ul>
+      <li>High thermal resistance for harsh industrial conditions</li>
+      <li>Fully automated sensor-assisted system</li>
+      <li>Long operational lifespan with minimal maintenance</li>
+      <li>Integrated monitoring and diagnostics</li>
+    </ul>
+
+    <h2 class="section-title">Gallery</h2>
+    <div class="gallery">
+      <img src="img1.jpg" alt="Gallery 1" />
+      <img src="img2.jpg" alt="Gallery 2" />
+      <img src="img3.jpg" alt="Gallery 3" />
+      <img src="img4.jpg" alt="Gallery 4" />
+      <img src="img5.jpg" alt="Gallery 5" />
+      <img src="img6.jpg" alt="Gallery 6" />
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
