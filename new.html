@@ -216,15 +216,15 @@
     }
 
     /* Configurator */
-    .configurator {
+    /* .configurator {
       margin-top: 20px;
       padding: 20px;
       background: #f8fafc;
       border-radius: 8px;
       border: 1px solid #e2e8f0;
-    }
+    } */
 
-    .configurator h3 {
+    /* .configurator h3 {
       margin-top: 0;
       font-size: 18px;
       color: #1e3a8a;
@@ -242,7 +242,7 @@
       padding: 8px;
       border: 1px solid #ddd;
       border-radius: 4px;
-    }
+    } */
 
     .btn-download,
     .btn-quote {
@@ -395,7 +395,7 @@
     </div>
     <div class="carousel-indicators" id="indicators"></div>
 
-    <div class="configurator">
+    <!-- <div class="configurator">
       <h3>Build Your Model</h3>
       <label for="voltage">Voltage:</label>
       <select id="voltage">
@@ -406,7 +406,7 @@
       <input type="number" id="output" placeholder="e.g., 120" min="50" max="200">
       <button class="btn-quote" onclick="generateQuote()">Get Customized Quote</button>
       <p id="quotePreview" style="margin-top: 10px; font-style: italic; color: #6b7280;"></p>
-    </div>
+    </div> -->
   </div>
 
 </div>
@@ -458,12 +458,12 @@
   }
 
   // Configurator
-  function generateQuote() {
-    const voltage = document.getElementById('voltage').value;
-    const output = document.getElementById('output').value;
-    const preview = document.getElementById('quotePreview');
-    preview.textContent = `Estimated config: ${voltage} setup for ${output || 120} units/hour. Price starting at $X,XXX.`;
-  }
+//   function generateQuote() {
+//     const voltage = document.getElementById('voltage').value;
+//     const output = document.getElementById('output').value;
+//     const preview = document.getElementById('quotePreview');
+//     preview.textContent = `Estimated config: ${voltage} setup for ${output || 120} units/hour. Price starting at $X,XXX.`;
+//   }
 
   // Model Viewer Annotations (basic hover)
   const viewer = document.querySelector('model-viewer');
