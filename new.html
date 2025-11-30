@@ -1,19 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MEEMCO Industrial Product Brochure</title>
+  <title> MEEMCO Industrial Product Brochure</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
   <!-- Model Viewer -->
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <!-- <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script> -->
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <style>
     body {
@@ -34,7 +32,6 @@
       margin: 0;
       font-size: 40px;
       font-weight: 700;
-      font-family: "Montserrat", sans-serif;
     }
 
     header p {
@@ -71,37 +68,16 @@
       height: 420px;
       border-radius: 12px;
       background: #e5e7eb;
-      --poster-transition: all 0.3s ease;
-    }
-
-    /* Annotations for Model Viewer */
-    .annotation {
-      position: absolute;
-      background: rgba(30, 58, 138, 0.9);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 12px;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s;
-      z-index: 10;
-    }
-
-    model-viewer:hover .annotation {
-      opacity: 1;
     }
 
     .section-title {
       margin-top: 25px;
       font-size: 22px;
       font-weight: 700;
-      font-family: "Montserrat", sans-serif;
       border-left: 4px solid #1e3a8a;
       padding-left: 10px;
     }
 
-    /* Upgraded Specs Table with Icons */
     table {
       width: 100%;
       margin-top: 15px;
@@ -109,193 +85,45 @@
     }
 
     table td {
-      padding: 12px 0;
+      padding: 10px 0;
       border-bottom: 1px solid #ddd;
-      vertical-align: top;
     }
 
-    table td:first-child {
-      font-weight: 600;
-      color: #1e3a8a;
-      width: 30%;
-      position: relative;
-      padding-left: 30px;
-    }
-
-    table td:first-child::before {
-      position: absolute;
-      left: 0;
-      color: #d97706; /* Orange accent for icons */
-      font-size: 16px;
-    }
-
-    tr:nth-child(1) td:first-child::before { content: "\f108"; } /* Material: cube icon */
-    tr:nth-child(2) td:first-child::before { content: "\f0e7"; } /* Power: bolt */
-    tr:nth-child(3) td:first-child::before { content: "\f091"; } /* Weight: balance */
-    tr:nth-child(4) td:first-child::before { content: "\f1eb"; } /* Output: chart */
-    tr:nth-child(5) td:first-child::before { content: "\f2c7"; } /* Temp: thermometer */
-
-    /* Carousel for Gallery */
-    .carousel {
-      position: relative;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
       margin-top: 20px;
-      overflow: hidden;
+    }
+
+    .gallery img {
+      width: 100%;
       border-radius: 8px;
-    }
-
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-
-    .carousel-item {
-      min-width: 100%;
-      height: 200px;
+      height: 85px;
       object-fit: cover;
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(30, 58, 138, 0.7);
-      color: white;
-      border: none;
-      padding: 10px;
       cursor: pointer;
-      z-index: 5;
-    }
-
-    .carousel-btn.prev { left: 10px; }
-    .carousel-btn.next { right: 10px; }
-
-    .carousel-indicators {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .carousel-indicator {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #ddd;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .carousel-indicator.active {
-      background: #1e3a8a;
-    }
-
-    /* Comparison Table */
-    .comparison-table {
-      margin-top: 20px;
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
-
-    .comparison-table th,
-    .comparison-table td {
-      padding: 10px;
-      text-align: left;
-      border: 1px solid #ddd;
-    }
-
-    .comparison-table th {
-      background: #f8fafc;
-      font-weight: 600;
-    }
-
-    .comparison-table .meemco {
-      background: #dbeafe;
-      font-weight: 600;
-      color: #1e3a8a;
-    }
-
-     Configurator 
-    .configurator {
-      margin-top: 20px;
-      padding: 20px;
-      background: #f8fafc;
-      border-radius: 8px;
-      border: 1px solid #e2e8f0;
-    } 
-
-     .configurator h3 {
-      margin-top: 0;
-      font-size: 18px;
-      color: #1e3a8a;
-    }
-
-    .configurator label {
-      display: block;
-      margin: 10px 0 5px;
-      font-weight: 600;
-    }
-
-     .configurator select,
-    .configurator input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-    } 
-
-    .btn-download,
-    .btn-quote {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
       transition: 0.3s;
-      border: none;
-      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     .btn-download {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 22px;
+      border-radius: 8px;
       background: #1e3a8a;
       color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
     }
 
     .btn-download:hover {
       background: #0f172a;
-    }
-
-    .btn-quote {
-      background: #d97706; /* Orange accent */
-      color: white;
-      margin-left: 10px;
-    }
-
-    .btn-quote:hover {
-      background: #b45309;
-    }
-
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .carousel-item {
-        height: 150px;
-      }
-
-      header h1 {
-        font-size: 28px;
-      }
-    }
-
-    /* Metallic Gray Accents */
-    .metallic {
-      color: #6b7280;
-      font-style: italic;
     }
   </style>
 </head>
@@ -310,22 +138,21 @@
 
   <!-- Left Panel -->
   <div class="left-panel">
-    <model-viewer
-      src="testduct.glb"
-      camera-controls
-      auto-rotate
-      shadow-intensity="1"
-      loading="eager"
-      poster="https://via.placeholder.com/800x420?text=MEEMCO+Product+Preview"
-    >
-      <!-- Annotations (Tooltips) -->
-      <div class="annotation" slot="hotspot-1" data-position="0.5 0.3 0.5" data-normal="0 0 -1">
-        High Thermal Sensors<br><span class="metallic">900°C Resistant</span>
-      </div>
-      <div class="annotation" slot="hotspot-2" data-position="0.2 0.5 0.5" data-normal="0 0 -1">
-        Automated Controls<br><span class="metallic">Minimal Maintenance</span>
-      </div>
-    </model-viewer>
+    <!-- <model-viewer
+        src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+        alt="Industrial Machine 3D Model"
+        camera-controls
+        auto-rotate
+        shadow-intensity="1"
+        style="width:100%; height:400px; background:#f0f4f8; border-radius:12px;"
+      ></model-viewer> -->
+
+      <model-viewer
+  src="testduct.glb"
+  camera-controls
+  auto-rotate
+  shadow-intensity="1"
+></model-viewer>
 
     <h2 class="section-title">Technical Specifications</h2>
     <table>
@@ -336,141 +163,32 @@
       <tr><td>Max Temperature</td><td>900°C</td></tr>
     </table>
 
-    <button class="btn-download" onclick="downloadModel()">Download 3D Model</button>
-    <button class="btn-quote" onclick="requestQuote()">Request Quote</button>
+    <a class="btn-download" href="testduct.glb" download>Download 3D Model</a>
   </div>
+
 
   <!-- Right Panel -->
   <div class="right-panel">
     <h2 class="section-title">Product Highlights</h2>
     <ul>
-      <li><strong>High thermal resistance for harsh industrial conditions:</strong> Withstands 900°C extremes, reducing downtime by 40% in foundry tests.</li>
-      <li><strong>Fully automated sensor-assisted system:</strong> Real-time adjustments for precision output up to 120 units/hour.</li>
-      <li><strong>Long operational lifespan with minimal maintenance:</strong> Engineered for 10+ years in demanding environments.</li>
-      <li><strong>Integrated monitoring and diagnostics:</strong> IoT-ready with app-based alerts to prevent failures.</li>
-      <li><strong>Customizable interfaces:</strong> Seamless IoT integration for your workflow.</li>
-      <li><strong>Eco-friendly design:</strong> 20% recycled steel with low-energy operation.</li>
+      <li>High thermal resistance for harsh industrial conditions</li>
+      <li>Fully automated sensor-assisted system</li>
+      <li>Long operational lifespan with minimal maintenance</li>
+      <li>Integrated monitoring and diagnostics</li>
     </ul>
 
-    <h2 class="section-title">Why Choose MEEMCO?</h2>
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>MEEMCO</th>
-          <th>Competitor A</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Thermal Limit</td>
-          <td class="meemco">900°C</td>
-          <td>700°C</td>
-        </tr>
-        <tr>
-          <td>Output Rate</td>
-          <td class="meemco">120 units/hour</td>
-          <td>80 units/hour</td>
-        </tr>
-        <tr>
-          <td>Maintenance Cycle</td>
-          <td class="meemco">10+ years</td>
-          <td>5 years</td>
-        </tr>
-      </tbody>
-    </table>
-
     <h2 class="section-title">Gallery</h2>
-    <div class="carousel">
-      <div class="carousel-inner" id="carouselInner">
-        <img class="carousel-item" src="img1.jpg" alt="Gallery 1: Factory Installation" />
-        <img class="carousel-item" src="img2.jpg" alt="Gallery 2: Close-up Detail" />
-        <img class="carousel-item" src="img3.jpg" alt="Gallery 3: In Operation" />
-        <img class="carousel-item" src="img4.jpg" alt="Gallery 4: Maintenance View" />
-        <img class="carousel-item" src="img5.jpg" alt="Gallery 5: Custom Config" />
-        <img class="carousel-item" src="img6.jpg" alt="Gallery 6: Field Test" />
-      </div>
-      <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
-      <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+    <div class="gallery">
+      <img src="img1.jpg" alt="Gallery 1" />
+      <img src="img2.jpg" alt="Gallery 2" />
+      <img src="img3.jpg" alt="Gallery 3" />
+      <img src="img4.jpg" alt="Gallery 4" />
+      <img src="img5.jpg" alt="Gallery 5" />
+      <img src="img6.jpg" alt="Gallery 6" />
     </div>
-    <div class="carousel-indicators" id="indicators"></div>
-
-    <!-- <div class="configurator">
-      <h3>Build Your Model</h3>
-      <label for="voltage">Voltage:</label>
-      <select id="voltage">
-        <option value="480V">480V (Standard)</option>
-        <option value="240V">240V (Low-Power)</option>
-      </select>
-      <label for="output">Target Output:</label>
-      <input type="number" id="output" placeholder="e.g., 120" min="50" max="200">
-      <button class="btn-quote" onclick="generateQuote()">Get Customized Quote</button>
-      <p id="quotePreview" style="margin-top: 10px; font-style: italic; color: #6b7280;"></p>
-    </div> -->
   </div>
 
 </div>
-
-<script>
-  // Carousel Functionality
-  let currentSlide = 0;
-  const slides = document.querySelectorAll('.carousel-item');
-  const totalSlides = slides.length;
-
-  function updateCarousel() {
-    const inner = document.getElementById('carouselInner');
-    inner.style.transform = `translateX(-${currentSlide * 100}%)`;
-    updateIndicators();
-  }
-
-  function changeSlide(direction) {
-    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-    updateCarousel();
-  }
-
-  function updateIndicators() {
-    const indicatorsContainer = document.getElementById('indicators');
-    indicatorsContainer.innerHTML = '';
-    for (let i = 0; i < totalSlides; i++) {
-      const indicator = document.createElement('div');
-      indicator.className = 'carousel-indicator' + (i === currentSlide ? ' active' : '');
-      indicator.onclick = () => { currentSlide = i; updateCarousel(); };
-      indicatorsContainer.appendChild(indicator);
-    }
-  }
-
-  // Auto-slide
-  setInterval(() => changeSlide(1), 5000);
-  updateIndicators();
-
-  // Download Model
-  function downloadModel() {
-    const link = document.createElement('a');
-    link.href = 'testduct.glb';
-    link.download = 'meemco-model.glb';
-    link.click();
-  }
-
-  // Request Quote
-  function requestQuote() {
-    alert('Quote request sent! A MEEMCO rep will contact you shortly.');
-    // In production, integrate with form/email API
-  }
-
-  // Configurator
-//   function generateQuote() {
-//     const voltage = document.getElementById('voltage').value;
-//     const output = document.getElementById('output').value;
-//     const preview = document.getElementById('quotePreview');
-//     preview.textContent = `Estimated config: ${voltage} setup for ${output || 120} units/hour. Price starting at $X,XXX.`;
-//   }
-
-  // Model Viewer Annotations (basic hover)
-  const viewer = document.querySelector('model-viewer');
-  viewer.addEventListener('mouseover', (e) => {
-    // Enhanced tooltip visibility on hover (already styled)
-  });
-</script>
 
 </body>
 </html>
