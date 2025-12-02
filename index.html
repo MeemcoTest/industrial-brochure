@@ -19,7 +19,7 @@
     body {
       margin: 0;
       font-family: "Roboto", sans-serif;
-      background: #f3f4f6;
+     background: linear-gradient(120deg, #f5f7fa, #cbd5e1);
       color: #222;
     }
 
@@ -52,10 +52,13 @@
     }
 
     .left-panel, .right-panel {
-      background: white;
+      background: linear-gradient(145deg, #ffffffdd, #f1f5f9cc);
       padding: 30px;
       border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(6px);
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: transform .25s ease, box-shadow .25s ease;
     }
 
     .left-panel {
@@ -72,6 +75,8 @@
       border-radius: 12px;
       background: #e5e7eb;
       --poster-transition: all 0.3s ease;
+      border: 2px solid #cbd5e1;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
     }
 
     /* Annotations for Model Viewer */
@@ -88,9 +93,25 @@
       z-index: 10;
     }
 
-    model-viewer:hover .annotation {
+  .annotation::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 12px; height: 12px;
+  background: rgba(30, 58, 138, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 1.8s infinite ease-out;
+}
+
+model-viewer:hover .annotation {
       opacity: 1;
-    }
+}
+    
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+  100% { transform: translate(-50%, -50%) scale(2.4); opacity: 0; }
+}
 
     .section-title {
       margin-top: 25px;
@@ -145,7 +166,8 @@
 
     .carousel-inner {
       display: flex;
-      transition: transform 0.5s ease;
+      /* transition: transform 0.5s ease; */
+       transition: opacity 0.6s ease;
     }
 
     .carousel-item {
@@ -297,6 +319,41 @@
       color: #6b7280;
       font-style: italic;
     }
+
+
+.left-panel:hover, .right-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1e3a8a;
+  padding: 14px 18px;
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  cursor: pointer;
+}
+
+.floating-btn:hover { background: #0f172a; }
+
+.section-title, table, ul, model-viewer, .carousel {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp .6s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
   </style>
 </head>
 <body>
@@ -408,7 +465,9 @@
       <p id="quotePreview" style="margin-top: 10px; font-style: italic; color: #6b7280;"></p>
     </div> -->
   </div>
-
+<div class="floating-btn">
+  <i class="fa-solid fa-envelope"></i> Contact Sales
+</div>
 </div>
 
 <script>
